@@ -1,0 +1,62 @@
+html {
+  font-family: 'Courier', serif;
+  color: #000000;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; }
+
+ul {
+  list-style: none;
+  border: 0;
+  margin: 0;
+  padding: 0; }
+  ul li {
+    list-style: none;
+    border: 0;
+    margin: 0;
+    padding: 0; }
+
+body {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+#paperContainer {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 900px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: #e4eaf0;
+  z-index: 9999; }
+
+#headerImage img {
+  width: 900px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: block; }
+
+#copyContainer {
+  padding: 0 50px; }
+
+#specialsContainer {
+  padding: 40px 0; }
+  #specialsContainer img {
+    width: 800px;
+    padding: 0 50px;
+    margin: 30px 0;
+    border: 0;
+    display: block; }
+
+#paperOffset {
+  z-index: 1;
+  background-color: #babdc3;
+  width: 940px;
+  height: 3225px;
+  position: absolute;
+  top: 50px;
+  left: 0; }
