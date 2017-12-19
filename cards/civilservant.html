@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--
+<link rel="stylesheet" type="text/css" href="style.css">
+-->
+
+  <title>Document</title>
+
+  <base target="_parent">
+</head>
+
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.cols{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.col{
+  width: calc(20% - .5rem);
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.cardcontainer{
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+}
+
+.front,
+.back{
+  font-family: 'Helvetica';
+  background-size: cover;
+    background-position: center;
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    text-align: center;
+    min-height: 280px;
+    height: auto;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.back{
+  background: red;
+  background: -webkit-linear-gradient(45deg,  red 0%,#000000 100%);
+  background: -o-linear-gradient(45deg,  red 0%,#000000 100%);
+  background: linear-gradient(45deg,  red 0%,#000000 100%);
+}
+
+.front:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: .7;
+    background-color: #000;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 10px;
+}
+.cardcontainer:hover .front,
+.cardcontainer:hover .back{
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.inner{
+  font-family: 'Helvetica';
+    font-size: .8rem;
+    font-weight: 100;
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    z-index: 2;
+}
+
+.cardcontainer .back{
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.cardcontainer .front{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.cardcontainer:hover .back{
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.cardcontainer:hover .front{
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.front .inner p{
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.front .inner p:after{
+  content: '';
+  width: 0rem;
+  height: 2px;
+  position: absolute;
+  background: #C6D4DF;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -.75rem;
+}
+
+.front .inner span{
+  color: rgba(255,255,255,0.7);
+  font-family: 'Helvetica';
+  font-weight: 300;
+}
+
+
+@media screen and (max-width: 64rem){
+  .col{
+    width: calc(33.333333% - 2rem);
+  }
+}
+
+@media screen and (max-width: 48rem){
+  .col{
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 32rem){
+  .col{
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+
+
+</style>
+
+<body>
+
+
+<div class="wrapper">
+  <div class="cols">
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="cardcontainer">
+                    <div class="front" style="background-image: url(img/1.png)">
+                        <div class="inner">
+                            <p class="heading">WHO'S THIS FOR?</p>
+            <!-- <span>Lorem ipsum</span>-->
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                          <p>Ramsey Chrysler Jeep Dodge Ram is saying thank you to our local Teachers, Police officers, Firefighters & First Responders with our Exclusive VIP Friends and Family Discount.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="cardcontainer">
+                    <div class="front" style="background-image: url(img/2.png)">
+                        <div class="inner">
+                            <p>HOW DOES IT WORK?</p>
+              <!-- <span>Lorem ipsum</span>-->
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                          <p>Enjoy a stress-free car buying experience. Just select the car you want, come in and we will show you the car you've selected, as well as the Friends & Family Discount price on that vehicle. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="cardcontainer">
+                    <div class="front" style="background-image: url(img/3.png)">
+                        <div class="inner">
+                            <p>TAKE YOUR TIME!</p>
+              <!-- <span>Lorem ipsum</span>-->
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p>We know buying a new vehicle is a big decision. Feel free to browse our website, call or e-mail, and come in for a visit! </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/504/504/">
+                        <div class="inner">
+                            <p>Rendann</p>
+              <span>Lorem ipsum</span>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/505/505/)">
+                        <div class="inner">
+                            <p>Reflupper</p>
+              <span>Lorem ipsum</span>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/506/506/)">
+                        <div class="inner">
+                            <p>Acirassi</p>
+              <span>Lorem ipsum</span>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(img/1.png)">
+                        <div class="inner">
+                            <p>Sohanidd</p>
+              <span>Lorem ipsum</span>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             -->
+        </div>
+    </div>
+ </div>
+
+
+
+</body>
+</html>

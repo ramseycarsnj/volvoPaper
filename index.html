@@ -2,34 +2,407 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="master.css">
+    <script src="https://unpkg.com/tippy.js@2.0.8/dist/tippy.all.min.js"></script>
     <script src="master.js" charset="utf-8"></script>
     <title>EXTRA EXTRA</title>
-  </head>
-  <body>
-    <div id="paperContainer">
-      <div id="headerImage">
-        <img src="header.png" alt="Ramsey Volvo Winter Sales Event">
-      </div>
-      <div id="copyContainer">
-        <p>
-          'Tis the Season to be Saving. The most important thing about the holiday season is family. And the most important thing about family is how unique each one is. That’s why Volvo designs cars so versatile they can fit you and your family's needs. Take advantage of these amazing offers this Holiday Season.
-        </p>
-      </div>
-      <!-- <div id="specialsContainer">
-        <ul>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2017-Volvo-S60-ramsey-nj-71fd80f30a0e0ae854d002e59757412c.htm"><img src="specials/3.png" alt="Volvo Special"></a></li>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2017-Volvo-S60+Inscription-ramsey-nj-590837220a0e0adf4dcd53fbe966e7ad.htm"><img src="specials/2.png" alt="Volvo Special"></a></li>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2017-Volvo-V60-ramsey-nj-e954eccb0a0e0ae75af8e084cb2c93f5.htm"><img src="specials/1.png" alt="Volvo Special"></a></li>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2017-Volvo-S60-ramsey-nj-751bc2120a0e0a1709e1ddd320399287.htm"><img src="specials/7.png" alt="Volvo Special"></a></li>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2018-Volvo-S90-ramsey-nj-ace700a20a0e0adf5dc318960a8caafe.htm"><img src="specials/4.png" alt="Volvo Special"></a></li>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2018-Volvo-V90+Cross+Country-ramsey-nj-9f06557c0a0e0adf10937696f008616a.htm"><img src="specials/5.png" alt="Volvo Special"></a></li>
-          <li><a href="https://www.volvocarsramsey.com/new/Volvo/2018-Volvo-XC90-ramsey-nj-aaea72e40a0e0aea7785924f6188142b.htm"><img src="specials/6.png" alt="Volvo Special"></a></li>
-        </ul>
-      </div> -->
-    </div>
-    <div id="paperOffset">
+    <base target="_parent">
+    </head>
 
+    <style>
+
+    *{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    }
+    .wrapper{
+    width: 940px;
+    margin: 0 0;
+    }
+
+    .cols{
+    margin: 0px;
+    padding: 0;
+    width: 940px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    }
+
+    .col{
+    margin: 0px;
+    padding: 0;
+    width: calc(33.333333% - 2rem);
+    cursor: pointer;
+    }
+
+    .cardcontainer{
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+      -webkit-perspective: 1000px;
+              perspective: 1000px;
+              width: 230px;
+              margin-bottom: 50px;
+
+    }
+
+
+    .front,
+    .back{
+    font-family: 'Helvetica';
+    background-size: cover;
+      background-position: center;
+      -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      text-align: center;
+      min-height: 280px;
+      height: auto;
+      border-radius: 10px;
+      color: #063155;
+      font-size: 1.5rem;
+    }
+
+    .back{
+    background: #fff;
+    }
+
+    .front:after{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      content: '';
+      display: block;
+      opacity: 1;
+      background-color: #fff;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      border-radius: 10px;
+    }
+    .cardcontainer:hover .front,
+    .cardcontainer:hover .back{
+      -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .inner{
+    font-family: 'Helvetica';
+      font-size: .8rem;
+      font-weight: 100;
+      -webkit-transform: translateY(-51%) translateZ(5px) scale(0.94);
+              transform: translateY(-51%) translateZ(5px) scale(0.94);
+      top: 50%;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      outline: 1px solid transparent;
+      -webkit-perspective: inherit;
+              perspective: inherit;
+      z-index: 2;
+    }
+
+    .cardcontainer .back{
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+    }
+
+    .cardcontainer .front{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+    }
+
+    .cardcontainer:hover .back{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    }
+
+    .cardcontainer:hover .front{
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    }
+
+    .front .inner p{
+    font-size: .8rem;
+    margin-bottom: 0rem;
+    position: relative;
+    }
+
+    .front .inner h3{
+    font-size: .9rem;
+    margin-bottom: 0rem;
+    position: relative;
+    }
+
+    .front .inner p:after{
+    content: '';
+    width: 0rem;
+    height: 2px;
+    position: absolute;
+    background: #C6D4DF;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -.75rem;
+
+    }
+
+    .front .inner span{
+    color: rgba(255,255,255,01);
+    font-family: 'Helvetica';
+    font-weight: 300;
+    }
+
+    .cardcontainer img {
+      width: 150px;
+    }
+    .cardcontainer h2 {
+      font-size: 50px;
+      line-height: 1;
+    }
+    .cardcontainer a {
+      cursor: pointer;
+    }
+    .buttonClicky {
+      text-decoration: none;
+      color: #fff;
+      background-color: #063155;
+      padding: 12px 20px;
+      width: 170px;
+      font-size: 14px;
+      margin: 2px 0;
+      cursor: pointer;
+    }
+    .buttonClicky:hover {
+      background-color: #06253e;
+      cursor: pointer;
+    }
+
+  .tippy-tooltip {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0,0.5);
+  }
+  #finalOffer{
+    position: absolute;
+    bottom: -650px;
+    left: 160px;
+    z-index: 9999;
+    text-align: center;
+  }
+  #finalOffer button{
+    width: 250px;
+    height: 40px;
+    border: 0;
+    background-color: #063155;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #finalOffer button:hover{
+    background-color: #06253e;
+    cursor: pointer;
+  }
+  #finalOffer h1{
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 600px){
+  .cols{
+    width: 300px;
+    display: block;
+  }
+  #finalOffer{
+    position: absolute;
+    bottom: -1250px;
+    left: 5px;
+    z-index: 9999;
+    width: 270px;
+    text-align: center;
+  }
+  #finalOffer button{
+    width: 120px;
+    height: 40px;
+    border: 0;
+    background-color: #063155;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #finalOffer button:hover{
+    background-color: #06253e;
+    cursor: pointer;
+  }
+  #finalOffer h1{
+    font-size: 18px;
+    width: 270px;
+  }
+  }
+    </style>
+
+    <body>
+
+
+
+    <div id="paperContainer">
+      <div id="copyContainer">
+        <div class="wrapper">
+          <div class="cols">
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="cardcontainer">
+                          <div class="front" style="background-image: url(img/1.png)">
+                              <div class="inner">
+                                  <p class="heading">2018 VOLVO S60</p>
+                                  <h3>T5 INSCRIPTION AWD</h3>
+                                  <img src="https://ramseycarsnj.github.io/volvoManagersSpecials/vehicleImages/VOH0664.jpg" alt="Volvo Image">
+                                  <h2><span style="font-size: 14px;color:#063155;">lease for:</span><br>$268<span  style="font-size: 20px;color:#063155;font-weight: 900;">/MO</span></h2>
+                                  <p class="heading">36 MONTH LEASE</p>
+                                  <p class="heading">$3747 DUE AT SIGNING</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <h3>VEHICLE INFO</h3><br><br><br><br>
+                                <a href="https://www.volvocarsramsey.com/new/Volvo/2017-Volvo-S60+Inscription-ramsey-nj-590837220a0e0adf4dcd53fbe966e7ad.htm"><button type="button" name="button" class="buttonClicky">VIEW VEHICLE</button></a>
+                                <button type="button" name="button" class="buttonClicky disclaimer" title="VIN HB155131. Stk VOH0664. 4 Dr, 4 Cylinder, Auto w/OD,mileage: 52 mi., air conditioning, power steering/ABS brakes/windows/locks/mirrors, cd/MP3, Leather Interior, CD Player, Moonroof, Alloy Wheels. MSRP: $42615. $3747 due at inception. $3180 down + 1st mo pymt $268+ bank fee incl. + $0 sec dep. $9648 ttl pymts/$18750 residual.Leather Interior, CD Player, Moonroof, Alloy Wheels Prices include all costs to be paid by a consumer except for licensing, registration, and taxes. Tier 1 credit approval thru primary lender. Lessee resp. for excess wear/tear. 7500 mi. per yr/.25¢ per mi. over thereafter. See dealer for complete details. Not resp. for typos. Offers expire 12/31/17.">OFFER DETAILS</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="cardcontainer">
+                          <div class="front" style="background-image: url(img/1.png)">
+                              <div class="inner">
+                                  <p class="heading">2018 VOLVO V60</p>
+                                  <h3>T5 PREMIER FWD</h3>
+                                  <img src="https://ramseycarsnj.github.io/volvoManagersSpecials/vehicleImages/VOH0220.jpeg" alt="Volvo Image">
+                                  <h2><span style="font-size: 14px;color:#063155;">lease for:</span><br>$298<span  style="font-size: 20px;color:#063155;font-weight: 900;">/MO</span></h2>
+                                  <p class="heading">36 MONTH LEASE</p>
+                                  <p class="heading">$3478 DUE AT SIGNING</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <h3>VEHICLE INFO</h3><br><br>
+                                <a href="https://www.volvocarsramsey.com/new/Volvo/2017-Volvo-V60-ramsey-nj-e954eccb0a0e0ae75af8e084cb2c93f5.htm"><button type="button" name="button" class="buttonClicky">VIEW VEHICLE</button></a>
+                                <button type="button" name="button" class="buttonClicky disclaimer" title="VIN H1337025. Stk VOH0220. Wagon, 4 Cylinder, Auto w/OD,mileage: 17 mi., air conditioning, power steering/ABS brakes/windows/locks/mirrors, cd/MP3, Climate Control, Leather Interior, CD Player, Dual Airbags, Side Airbags, Moonroof, Keyless Remote Entry, Alarm System. MSRP: $42485. $3478 due at inception. $3180 down + 1st mo pymt $298+ bank fee incl. + $0 sec dep. $10728 ttl pymts/$17843 residual.Climate Control, Leather Interior, CD Player, Dual Airbags, Side Airbags, Moonroof, Keyless Remote Entry, Alarm System Prices include all costs to be paid by a consumer except for licensing, registration, and taxes. Tier 1 credit approval thru primary lender. Lessee resp. for excess wear/tear. 7500 mi. per yr/.25¢ per mi. over thereafter. See dealer for complete details. Not resp. for typos. Offers expire 12/31/17.">OFFER DETAILS</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="cardcontainer">
+                          <div class="front" style="background-image: url(img/1.png)">
+                              <div class="inner">
+                                  <p class="heading">2018 VOLVO S60</p>
+                                  <h3>T6 RDESIGN AWD</h3>
+                                  <img src="https://ramseycarsnj.github.io/volvoManagersSpecials/vehicleImages/VOH0451.jpg" alt="Volvo Image">
+                                  <h2><span style="font-size: 14px;color:#063155;">lease for:</span><br>$348<span  style="font-size: 20px;color:#063155;font-weight: 900;">/MO</span></h2>
+                                  <p class="heading">36 MONTH LEASE</p>
+                                  <p class="heading">$3529 DUE AT SIGNING</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <h3>VEHICLE INFO</h3><br><br>
+                                <a href="https://www.volvocarsramsey.com/fleet-new/Volvo/2017-Volvo-S60-ramsey-nj-751bc2120a0e0a1709e1ddd320399287.htm"><button type="button" name="button" class="buttonClicky">VIEW VEHICLE</button></a>
+                                <button type="button" name="button" class="buttonClicky disclaimer" title="VIN H2434444. Stk VOH0451. 4 Dr, 4 Cylinder, Auto w/OD,mileage: 31 mi., air conditioning, power steering/ABS brakes/windows/locks/mirrors, cd/MP3, Climate Control, Leather Interior. MSRP: $51465. $3529 due at inception. $3180 down + 1st mo pymt $348+ bank fee incl. + $0 sec dep. $12528 ttl pymts/$22129 residual.Climate Control, Leather Interior Prices include all costs to be paid by a consumer except for licensing, registration, and taxes. Tier 1 credit approval thru primary lender. Lessee resp. for excess wear/tear. 7500 mi. per yr/.25¢ per mi. over thereafter. See dealer for complete details. Not resp. for typos. Offers expire 12/31/17.">OFFER DETAILS</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="cardcontainer">
+                          <div class="front" style="background-image: url(img/1.png)">
+                              <div class="inner">
+                                  <p class="heading">2018 VOLVO V90CC</p>
+                                  <h3>T6 AWD</h3>
+                                  <img src="https://ramseycarsnj.github.io/volvoManagersSpecials/vehicleImages/VOJ0237.jpeg" alt="Volvo Image">
+                                  <h2><span style="font-size: 14px;color:#063155;">lease for:</span><br>$468<span  style="font-size: 20px;color:#063155;font-weight: 900;">/MO</span></h2>
+                                  <p class="heading">30 MONTH LEASE</p>
+                                  <p class="heading">$4767 DUE AT SIGNING</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <h3>VEHICLE INFO</h3><br><br>
+                                <a href="https://www.volvocarsramsey.com/new/Volvo/2018-Volvo-V90+Cross+Country-ramsey-nj-9f06557c0a0e0adf10937696f008616a.htm"><button type="button" name="button" class="buttonClicky">VIEW VEHICLE</button></a>
+                                <button type="button" name="button" class="buttonClicky disclaimer" title="VIN J1015792. Stk VOJ0237. Wagon, 4 Cylinder, Auto w/OD,mileage: 37 mi., air conditioning, power steering/ABS brakes/windows/locks/mirrors, cd/MP3, Leather Interior, Moonroof, BOWER AND WILKINS SOUND. MSRP: $68425. $4767 due at inception. $4000 down + 1st mo pymt $468+ bank fee incl. + $0 sec dep. $14040 ttl pymts/$41055 residual.Leather Interior, Moonroof, BOWER AND WILKINS SOUND Prices include all costs to be paid by a consumer except for licensing, registration, and taxes. Tier 1 credit approval thru primary lender. Lessee resp. for excess wear/tear. 7500 mi. per yr/.25¢ per mi. over thereafter. See dealer for complete details. Not resp. for typos. Offers expire 12/31/17.">OFFER DETAILS</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="cardcontainer">
+                          <div class="front" style="background-image: url(img/1.png)">
+                              <div class="inner">
+                                  <p class="heading">2018 VOLVO XC90</p>
+                                  <h3>T6 MOMENTUM AWD</h3>
+                                  <img src="https://ramseycarsnj.github.io/volvoManagersSpecials/vehicleImages/VOJ0322.jpeg" alt="Volvo Image">
+                                  <h2><span style="font-size: 14px;color:#063155;">lease for:</span><br>$499<span  style="font-size: 20px;color:#063155;font-weight: 900;">/MO</span></h2>
+                                  <p class="heading">39 MONTH LEASE</p>
+                                  <p class="heading">$4599 DUE AT SIGNING</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <h3>VEHICLE INFO</h3><br><br>
+                                <a href="https://www.volvocarsramsey.com/new/Volvo/2018-Volvo-XC90-ramsey-nj-aaea72e40a0e0aea7785924f6188142b.htm"><button type="button" name="button" class="buttonClicky">VIEW VEHICLE</button></a>
+                                <button type="button" name="button" class="buttonClicky disclaimer" title="VIN J1333595. Stk VOJ0322. 7 Passenger, 4 Cylinder, Auto w/OD,mileage: 27 mi., air conditioning, power steering/ABS brakes/windows/locks/mirrors, cd/MP3, Momentum plus ,Child Booster,Convenience package. MSRP: $59190. $4599 due at inception. $4100 down + 1st mo pymt $499+ bank fee incl. + $0 sec dep. $19461 ttl pymts/$34330 residual.Momentum plus ,Child Booster,Convenience package Prices include all costs to be paid by a consumer except for licensing, registration, and taxes. Tier 1 credit approval thru primary lender. Lessee resp. for excess wear/tear. 7500 mi. per yr/.25¢ per mi. over thereafter. See dealer for complete details. Not resp. for typos. Offers expire 12/31/17.">OFFER DETAILS</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+      </div>
     </div>
+    <div id="finalOffer">
+      <h1>NOT SEEING WHAT YOU'RE INTERESTED IN?</h1>
+      <br>
+      <a href="https://www.volvocarsramsey.com/new-inventory/index.htm"><button type="button" name="button">VIEW INVENTORY</button></a>&nbsp;&nbsp;&nbsp;
+      <a href="tel:2013275105"><button type="button" name="button">CALL US</button></a>
+    </div>
+    <script type="text/javascript">
+      tippy('.disclaimer');
+
+    </script>
   </body>
 </html>
