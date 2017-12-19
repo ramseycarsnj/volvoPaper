@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="master.css">
+    <!-- <link rel="stylesheet" href="master.css"> -->
     <script src="https://unpkg.com/tippy.js@2.0.8/dist/tippy.all.min.js"></script>
     <script src="master.js" charset="utf-8"></script>
     <title>EXTRA EXTRA</title>
@@ -11,6 +11,64 @@
     </head>
 
     <style>
+    html {
+      font-family: 'Heletica', sans-serif;
+      color: #000000;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; }
+
+    ul {
+      list-style: none;
+      border: 0;
+      margin: 0;
+      padding: 0; }
+      ul li {
+        list-style: none;
+        border: 0;
+        margin: 0;
+        padding: 0; }
+
+    body {
+      border: 0;
+      margin: 0;
+      padding: 0; }
+
+    #paperContainer {
+      position: absolute;
+      left: 0px;
+      top: 0;
+      width: 940px;
+      height: 1700px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background-image: url(background.png);
+      background-color: #e4eaf0;
+      z-index: 99; }
+
+    #headerImage img {
+      width: 940px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      display: block; }
+
+    #copyContainer {
+      position: absolute;
+      left: 22px;
+      top: 800px;
+      width: 940px; }
+
+    #specialsContainer {
+      padding: 40px 0; }
+      #specialsContainer img {
+        width: 800px;
+        padding: 0 50px;
+        margin: 30px 0;
+        border: 0;
+        display: block; }
 
     *{
     margin: 0;
@@ -246,25 +304,30 @@
 
   @media screen and (max-width: 600px){
   .cols{
-    width: 300px;
+    width: 260px;
     display: block;
+    padding:0;
+    margin:0 0 0 -10px;
   }
   #finalOffer{
     position: absolute;
-    bottom: -1250px;
-    left: 5px;
+    bottom: -1030px;
+    left: -7px;
     z-index: 9999;
-    width: 270px;
     text-align: center;
+    margin: 0;
+    padding: 0;
   }
   #finalOffer button{
-    width: 120px;
+    width: 115px;
     height: 40px;
     border: 0;
     background-color: #063155;
     color: #fff;
     font-size: 12px;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
   }
   #finalOffer button:hover{
     background-color: #06253e;
@@ -273,7 +336,25 @@
   #finalOffer h1{
     font-size: 18px;
     width: 270px;
+    margin: 0;
+    padding: 0;
   }
+  #paperContainer {
+    position: absolute;
+    left: 0px;
+    top: 0;
+    width: 255px;
+    height: 2033px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-image: url(backgroundMob.png);
+    background-size: 255px; }
+  #copyContainer {
+    position: absolute;
+    left: 22px;
+    top: 220px;
+    width: 255px; }
   }
     </style>
 
